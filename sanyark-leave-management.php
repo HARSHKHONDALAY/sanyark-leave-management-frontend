@@ -30,7 +30,7 @@ add_action('wp_enqueue_scripts', function () {
         'slm-style',
         SLM_PLUGIN_URL . 'assets/css/slm-style.css',
         [],
-        '1.2.0'
+        '1.3.0'
     );
 
     wp_enqueue_script(
@@ -45,7 +45,7 @@ add_action('wp_enqueue_scripts', function () {
         'slm-app',
         SLM_PLUGIN_URL . 'assets/js/slm-app.js',
         ['particles-js'],
-        '1.2.0',
+        '1.3.0',
         true
     );
 });

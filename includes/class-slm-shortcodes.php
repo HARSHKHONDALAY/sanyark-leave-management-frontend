@@ -197,7 +197,7 @@ class SLM_Shortcodes
                 </div>
 
                 <div class="slm-grid slm-grid-2 slm-dashboard-sections">
-                    <div class="slm-card-sm">
+                    <div class="slm-card-sm slm-equal-card">
                         <h3>Upcoming Holidays</h3>
 
                         <?php if (empty($holiday_preview)): ?>
@@ -222,7 +222,7 @@ class SLM_Shortcodes
                         <?php endif; ?>
                     </div>
 
-                    <div class="slm-card-sm">
+                    <div class="slm-card-sm slm-equal-card">
                         <h3>Upcoming Approved Leaves</h3>
 
                         <?php if (empty($leave_preview)): ?>
@@ -253,36 +253,36 @@ class SLM_Shortcodes
                 </div>
 
                 <div class="slm-grid slm-grid-3 slm-dashboard-sections">
-                    <div class="slm-card-sm">
+                    <div class="slm-card-sm slm-action-card">
                         <h3>Submit New Request</h3>
                         <p class="slm-muted">
                             Create a fresh leave request with leave type, dates, and reason so your manager can review it quickly.
                         </p>
-                        <div class="slm-actions">
+                        <div class="slm-actions slm-actions-bottom">
                             <a class="slm-button" href="<?php echo esc_url(site_url('/apply-leave')); ?>">
                                 Apply for Leave
                             </a>
                         </div>
                     </div>
 
-                    <div class="slm-card-sm">
+                    <div class="slm-card-sm slm-action-card">
                         <h3>Track Leave Status</h3>
                         <p class="slm-muted">
                             Review your complete leave history, approval progress, status changes, and manager comments.
                         </p>
-                        <div class="slm-actions">
+                        <div class="slm-actions slm-actions-bottom">
                             <a class="slm-button slm-button-secondary" href="<?php echo esc_url(site_url('/my-leaves')); ?>">
                                 View My Leaves
                             </a>
                         </div>
                     </div>
 
-                    <div class="slm-card-sm">
+                    <div class="slm-card-sm slm-action-card">
                         <h3>Secure Session</h3>
                         <p class="slm-muted">
                             End your session safely after reviewing or submitting your leave requests.
                         </p>
-                        <div class="slm-actions">
+                        <div class="slm-actions slm-actions-bottom">
                             <a class="slm-button slm-button-danger" href="<?php echo esc_url(site_url('/?slm_logout=1')); ?>">
                                 Logout
                             </a>
@@ -363,6 +363,12 @@ class SLM_Shortcodes
         ?>
         <div class="slm-container" style="max-width: 900px;">
             <div class="slm-card">
+                <div class="slm-page-topbar">
+                    <a class="slm-button slm-button-secondary slm-back-button" href="<?php echo esc_url(site_url('/employee-dashboard')); ?>">
+                        ← Back to Dashboard
+                    </a>
+                </div>
+
                 <div class="slm-hero-copy">
                     <span class="slm-kicker">LEAVE REQUEST</span>
                     <h2 class="slm-title">Submit a Leave Application</h2>
@@ -418,10 +424,6 @@ class SLM_Shortcodes
                         <button class="slm-button" type="submit" name="slm_apply_leave_submit">
                             Submit Request
                         </button>
-
-                        <a class="slm-button slm-button-secondary" href="<?php echo esc_url(site_url('/employee-dashboard')); ?>">
-                            Back to Dashboard
-                        </a>
                     </div>
                 </form>
             </div>
@@ -516,6 +518,12 @@ class SLM_Shortcodes
         ?>
         <div class="slm-container">
             <div class="slm-card">
+                <div class="slm-page-topbar">
+                    <a class="slm-button slm-button-secondary slm-back-button" href="<?php echo esc_url(site_url('/employee-dashboard')); ?>">
+                        ← Back to Dashboard
+                    </a>
+                </div>
+
                 <div class="slm-hero-copy">
                     <span class="slm-kicker">REQUEST HISTORY</span>
                     <h2 class="slm-title">My Leave Timeline</h2>
@@ -526,17 +534,13 @@ class SLM_Shortcodes
 
                 <div class="slm-filter-bar">
                     <form method="get" class="slm-filter-form">
-                        <select class="slm-select" name="status">
+                        <select class="slm-select" name="status" onchange="this.form.submit()">
                             <option value="">All Status</option>
                             <option value="PENDING" <?php selected($status_filter, 'PENDING'); ?>>Pending</option>
                             <option value="APPROVED" <?php selected($status_filter, 'APPROVED'); ?>>Approved</option>
                             <option value="REJECTED" <?php selected($status_filter, 'REJECTED'); ?>>Rejected</option>
                             <option value="CANCELLED" <?php selected($status_filter, 'CANCELLED'); ?>>Cancelled</option>
                         </select>
-
-                        <button class="slm-button slm-button-secondary" type="submit">
-                            Filter
-                        </button>
                     </form>
                 </div>
 
@@ -600,12 +604,6 @@ class SLM_Shortcodes
                         </table>
                     </div>
                 <?php endif; ?>
-
-                <div class="slm-actions">
-                    <a class="slm-button slm-button-secondary" href="<?php echo esc_url(site_url('/employee-dashboard')); ?>">
-                        Back to Dashboard
-                    </a>
-                </div>
             </div>
         </div>
         <?php
@@ -746,7 +744,7 @@ class SLM_Shortcodes
                 </div>
 
                 <div class="slm-grid slm-grid-3 slm-dashboard-sections">
-                    <div class="slm-card-sm">
+                    <div class="slm-card-sm slm-equal-card">
                         <h3>On Leave Today</h3>
 
                         <?php if (empty($current_preview)): ?>
@@ -774,7 +772,7 @@ class SLM_Shortcodes
                         <?php endif; ?>
                     </div>
 
-                    <div class="slm-card-sm">
+                    <div class="slm-card-sm slm-equal-card">
                         <h3>Upcoming Approved Leaves</h3>
 
                         <?php if (empty($upcoming_preview)): ?>
@@ -802,7 +800,7 @@ class SLM_Shortcodes
                         <?php endif; ?>
                     </div>
 
-                    <div class="slm-card-sm">
+                    <div class="slm-card-sm slm-equal-card">
                         <h3>Pending Request Snapshot</h3>
 
                         <?php if (empty($pending_preview)): ?>
@@ -832,36 +830,36 @@ class SLM_Shortcodes
                 </div>
 
                 <div class="slm-grid slm-grid-3 slm-dashboard-sections">
-                    <div class="slm-card-sm">
+                    <div class="slm-card-sm slm-action-card">
                         <h3>Review Active Requests</h3>
                         <p class="slm-muted">
                             Open the full request queue, read employee context, and approve or reject pending requests with manager comments.
                         </p>
-                        <div class="slm-actions">
+                        <div class="slm-actions slm-actions-bottom">
                             <a class="slm-button" href="<?php echo esc_url(site_url('/manage-leaves')); ?>">
                                 Manage Leave Requests
                             </a>
                         </div>
                     </div>
 
-                    <div class="slm-card-sm">
+                    <div class="slm-card-sm slm-action-card">
                         <h3>Team Leave Calendar</h3>
                         <p class="slm-muted">
                             View the full monthly leave calendar to understand team availability day by day across approved and pending requests.
                         </p>
-                        <div class="slm-actions">
+                        <div class="slm-actions slm-actions-bottom">
                             <a class="slm-button slm-button-secondary" href="<?php echo esc_url(site_url('/team-calendar')); ?>">
                                 Open Team Calendar
                             </a>
                         </div>
                     </div>
 
-                    <div class="slm-card-sm">
+                    <div class="slm-card-sm slm-action-card">
                         <h3>Secure Session</h3>
                         <p class="slm-muted">
                             Close your current session securely when managerial review is complete.
                         </p>
-                        <div class="slm-actions">
+                        <div class="slm-actions slm-actions-bottom">
                             <a class="slm-button slm-button-danger" href="<?php echo esc_url(site_url('/?slm_logout=1')); ?>">
                                 Logout
                             </a>
@@ -1017,6 +1015,12 @@ class SLM_Shortcodes
         ?>
         <div class="slm-container">
             <div class="slm-card">
+                <div class="slm-page-topbar">
+                    <a class="slm-button slm-button-secondary slm-back-button" href="<?php echo esc_url(site_url('/manager-dashboard')); ?>">
+                        ← Back to Dashboard
+                    </a>
+                </div>
+
                 <div class="slm-hero-copy">
                     <span class="slm-kicker">APPROVAL WORKFLOW</span>
                     <h2 class="slm-title">Manage Leave Requests</h2>
@@ -1142,19 +1146,220 @@ class SLM_Shortcodes
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
-
-                <div class="slm-actions">
-                    <a class="slm-button slm-button-secondary" href="<?php echo esc_url(site_url('/manager-dashboard')); ?>">
-                        Back to Dashboard
-                    </a>
-                </div>
             </div>
         </div>
         <?php
         return ob_get_clean();
     }
 
-    
+    /* =====================================================
+       TEAM CALENDAR
+    ======================================================*/
+
+    public function team_calendar()
+    {
+        if (!SLM_Auth::is_logged_in()) {
+            return '<div class="slm-container"><div class="slm-alert slm-alert-error">Please login.</div></div>';
+        }
+
+        $user = SLM_Auth::get_user();
+        $role = strtoupper((string) ($user['role'] ?? ''));
+
+        if ($role !== 'MANAGER') {
+            return '<div class="slm-container"><div class="slm-alert slm-alert-error">Access denied.</div></div>';
+        }
+
+        $token = SLM_Auth::get_token();
+        $result = SLM_API::get_all_leaves($token);
+
+        if (empty($result['success']) && empty($result['data'])) {
+            return '<div class="slm-container"><div class="slm-alert slm-alert-error">' . esc_html($result['message'] ?? 'Failed to fetch calendar data.') . '</div></div>';
+        }
+
+        $leaves = is_array($result['data'] ?? null) ? $result['data'] : [];
+
+        $month = intval($_GET['month'] ?? current_time('n'));
+        $year = intval($_GET['year'] ?? current_time('Y'));
+
+        if ($month < 1 || $month > 12) {
+            $month = intval(current_time('n'));
+        }
+
+        if ($year < 2000 || $year > 2100) {
+            $year = intval(current_time('Y'));
+        }
+
+        $first_day_timestamp = strtotime(sprintf('%04d-%02d-01', $year, $month));
+        if (!$first_day_timestamp) {
+            $first_day_timestamp = strtotime(date('Y-m-01'));
+        }
+
+        $month_name = date('F Y', $first_day_timestamp);
+        $first_weekday = intval(date('N', $first_day_timestamp));
+        $grid_start_timestamp = strtotime('-' . ($first_weekday - 1) . ' days', $first_day_timestamp);
+
+        $prev_month_timestamp = strtotime('-1 month', $first_day_timestamp);
+        $next_month_timestamp = strtotime('+1 month', $first_day_timestamp);
+
+        $events_by_day = [];
+
+        foreach ($leaves as $leave) {
+            $start_date = $leave['startDate'] ?? '';
+            $end_date = $leave['endDate'] ?? '';
+
+            if (empty($start_date) || empty($end_date)) {
+                continue;
+            }
+
+            $start_ts = strtotime($start_date);
+            $end_ts = strtotime($end_date);
+
+            if (!$start_ts || !$end_ts || $end_ts < $start_ts) {
+                continue;
+            }
+
+            for ($current_ts = $start_ts; $current_ts <= $end_ts; $current_ts = strtotime('+1 day', $current_ts)) {
+                $day_key = date('Y-m-d', $current_ts);
+
+                if (!isset($events_by_day[$day_key])) {
+                    $events_by_day[$day_key] = [];
+                }
+
+                $events_by_day[$day_key][] = [
+                    'employeeName' => $leave['employeeName'] ?? '-',
+                    'employeeCode' => $leave['employeeCode'] ?? '-',
+                    'leaveType'    => $leave['leaveType'] ?? '',
+                    'status'       => $leave['status'] ?? 'PENDING',
+                    'startDate'    => $leave['startDate'] ?? '',
+                    'endDate'      => $leave['endDate'] ?? '',
+                ];
+            }
+        }
+
+        $week_days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+        $today = current_time('Y-m-d');
+
+        ob_start();
+        ?>
+        <div class="slm-container">
+            <div class="slm-card">
+                <div class="slm-page-topbar">
+                    <a class="slm-button slm-button-secondary slm-back-button" href="<?php echo esc_url(site_url('/manager-dashboard')); ?>">
+                        ← Back to Dashboard
+                    </a>
+                </div>
+
+                <div class="slm-hero-copy">
+                    <span class="slm-kicker">TEAM AVAILABILITY</span>
+                    <h2 class="slm-title">Team Leave Calendar</h2>
+                    <p class="slm-subtitle">
+                        View the full month at a glance, monitor approved and pending leave events, and keep team scheduling aligned with operational priorities.
+                    </p>
+                </div>
+
+                <div class="slm-calendar-toolbar">
+                    <a
+                        class="slm-button slm-button-secondary"
+                        href="<?php echo esc_url(add_query_arg([
+                            'month' => date('n', $prev_month_timestamp),
+                            'year'  => date('Y', $prev_month_timestamp),
+                        ], site_url('/team-calendar'))); ?>"
+                    >
+                        ← Previous
+                    </a>
+
+                    <div class="slm-calendar-title"><?php echo esc_html($month_name); ?></div>
+
+                    <div class="slm-calendar-toolbar-actions">
+                        <a
+                            class="slm-button slm-button-secondary"
+                            href="<?php echo esc_url(site_url('/team-calendar')); ?>"
+                        >
+                            Today
+                        </a>
+
+                        <a
+                            class="slm-button slm-button-secondary"
+                            href="<?php echo esc_url(add_query_arg([
+                                'month' => date('n', $next_month_timestamp),
+                                'year'  => date('Y', $next_month_timestamp),
+                            ], site_url('/team-calendar'))); ?>"
+                        >
+                            Next →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="slm-calendar-grid slm-calendar-weekdays">
+                    <?php foreach ($week_days as $week_day): ?>
+                        <div class="slm-calendar-weekday"><?php echo esc_html($week_day); ?></div>
+                    <?php endforeach; ?>
+                </div>
+
+                <div class="slm-calendar-grid slm-calendar-days">
+                    <?php for ($cell = 0; $cell < 42; $cell++): ?>
+                        <?php
+                        $cell_timestamp = strtotime('+' . $cell . ' days', $grid_start_timestamp);
+                        $cell_date = date('Y-m-d', $cell_timestamp);
+                        $cell_day = date('j', $cell_timestamp);
+                        $is_current_month = intval(date('n', $cell_timestamp)) === $month;
+                        $is_today = $cell_date === $today;
+                        $day_events = $events_by_day[$cell_date] ?? [];
+                        $visible_events = array_slice($day_events, 0, 2);
+                        $extra_count = count($day_events) - count($visible_events);
+
+                        $cell_classes = ['slm-calendar-day'];
+                        if (!$is_current_month) {
+                            $cell_classes[] = 'slm-calendar-day-outside';
+                        }
+                        if ($is_today) {
+                            $cell_classes[] = 'slm-calendar-day-today';
+                        }
+                        ?>
+                        <div class="<?php echo esc_attr(implode(' ', $cell_classes)); ?>">
+                            <div class="slm-calendar-day-number"><?php echo esc_html($cell_day); ?></div>
+
+                            <div class="slm-calendar-events">
+                                <?php foreach ($visible_events as $event): ?>
+                                    <div class="<?php echo esc_attr($this->get_calendar_event_class($event['status'] ?? 'PENDING')); ?>">
+                                        <strong><?php echo esc_html($event['employeeName'] ?? '-'); ?></strong>
+                                        <span><?php echo esc_html($this->format_leave_type($event['leaveType'] ?? '')); ?></span>
+                                        <span><?php echo esc_html(strtoupper((string) ($event['status'] ?? 'PENDING'))); ?></span>
+                                    </div>
+                                <?php endforeach; ?>
+
+                                <?php if ($extra_count > 0): ?>
+                                    <div class="slm-calendar-more">+<?php echo esc_html($extra_count); ?> more</div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php endfor; ?>
+                </div>
+
+                <div class="slm-calendar-legend">
+                    <span class="slm-calendar-legend-item">
+                        <span class="slm-calendar-legend-dot slm-calendar-legend-approved"></span>
+                        Approved
+                    </span>
+                    <span class="slm-calendar-legend-item">
+                        <span class="slm-calendar-legend-dot slm-calendar-legend-pending"></span>
+                        Pending
+                    </span>
+                    <span class="slm-calendar-legend-item">
+                        <span class="slm-calendar-legend-dot slm-calendar-legend-rejected"></span>
+                        Rejected
+                    </span>
+                    <span class="slm-calendar-legend-item">
+                        <span class="slm-calendar-legend-dot slm-calendar-legend-cancelled"></span>
+                        Cancelled
+                    </span>
+                </div>
+            </div>
+        </div>
+        <?php
+
+        return ob_get_clean();
+    }
 
     /* =====================================================
        HELPERS
